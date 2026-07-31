@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Personal Search Router",
+  "version": "1.0.0",
+  "description": "Routes Firefox address-bar searches using short prefixes.",
+  "icons": {
+    "48": "icons/router.svg"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "personal-search-router@local"
+    }
+  },
+  "chrome_settings_overrides": {
+    "search_provider": {
+      "name": "Personal Search Router",
+      "search_url": "https://chatgpt.com/?q={searchTerms}",
+      "keyword": "route",
+      "is_default": true,
+      "favicon_url": "icons/router.svg"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*"],
+      "js": ["router.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "permissions": ["storage"]
+}

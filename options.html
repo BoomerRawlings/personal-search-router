@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Search Router</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main>
+      <h1>Personal Search Router</h1>
+      <p>One route per line: <code>prefix = URL</code>. Use <code>{query}</code> where the search text belongs.</p>
+      <textarea id="routes" rows="8" spellcheck="false"></textarea>
+      <p class="hint">Unprefixed searches and <code>c &lt;query&gt;</code> stay in ChatGPT.</p>
+      <button id="save" type="button">Save routes</button>
+      <output id="status" aria-live="polite"></output>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>
