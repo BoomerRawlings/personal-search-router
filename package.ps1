@@ -1,0 +1,36 @@
+param(
+  [string]$OutputPath = "personal-search-router.xpi"
+)
+
+$ErrorActionPreference = "Stop"
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+Add-Type -AssemblyName System.IO.Compression
+
+$root = $PSScriptRoot
+$files = @(
+  "manifest.json",
+  "router.js",
+  "options.html",
+  "options.js",
+  "options.css",
+  "README.md",
+  "icons/router.svg"
+)
+
+$target = Join-Path $root $OutputPath
+if (Test-Path -LiteralPath $target) {
+  Remove-Item -LiteralPath $target
+}
+
+$zip = [System.IO.Compression.ZipFile]::Open($target, [System.IO.Compression.ZipArchiveMode]::Create)
+try {
+  foreach ($file in $files) {
+    $source = Join-Path $root $file
+    [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile($zip, $source, $file.Replace("\\", "/")) | Out-Null
+  }
+}
+finally {
+  $zip.Dispose()
+}
+
+Write-Output "Created $target"

@@ -21,6 +21,10 @@ Zotero is intentionally not included.
 
 Temporary add-ons are removed when Firefox restarts. For a durable personal install, submit the folder as an unlisted Firefox add-on for Mozilla signing.
 
+## Package for Mozilla signing
+
+Run `./package.ps1` in PowerShell. It creates a standards-compliant `.xpi` archive with portable forward-slash paths. Upload that file to the Mozilla Add-on Developer Hub as an unlisted/self-distributed add-on.
+
 ## How it works
 
 Firefox requires an HTTPS URL for extension-provided search engines. This add-on therefore sends address-bar searches to ChatGPT first. Its early-loading router redirects recognized prefixes (`g`, `p`, `o`) before ChatGPT renders. Unprefixed searches and `c` remain on ChatGPT.
