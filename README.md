@@ -1,6 +1,8 @@
 # Personal Search Router
 
-A private Firefox extension that routes address-bar searches with short prefixes:
+A Firefox extension that routes address-bar searches with short prefixes.
+
+> **Mozilla Add-ons status:** submitted for Mozilla signing as an unlisted, self-distributed add-on. It is not publicly listed in the Firefox Add-ons store. Once Mozilla signs the release, install the signed `.xpi` through Firefox's **Install Add-on From File** option.
 
 | Input | Destination |
 | --- | --- |
@@ -19,7 +21,7 @@ Zotero is intentionally not included.
 3. Accept Firefox's prompt to make **Personal Search Router** the default search engine. If you skip it, set it manually in Firefox Search settings.
 4. Search from the address bar using the prefixes above. Edit them from the extension's Options page.
 
-Temporary add-ons are removed when Firefox restarts. For a durable personal install, submit the folder as an unlisted Firefox add-on for Mozilla signing.
+Temporary add-ons are removed when Firefox restarts. For a durable personal install, install the Mozilla-signed `.xpi` from the Add-ons Manager's **Install Add-on From File** option.
 
 ## Package for Mozilla signing
 
