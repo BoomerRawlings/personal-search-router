@@ -1,10 +1,10 @@
 # Personal Search Router
 
-A Firefox extension that routes address-bar searches with short prefixes.
+Route Firefox address-bar searches to your preferred research and AI tools with short, memorable prefixes.
 
-> **Mozilla Add-ons status:** submitted for Mozilla signing as an unlisted, self-distributed add-on. It is not publicly listed in the Firefox Add-ons store. Once Mozilla signs the release, install the signed `.xpi` through Firefox's **Install Add-on From File** option.
+## Routes
 
-| Input | Destination |
+| Type in Firefox | Opens |
 | --- | --- |
 | `g neural plasticity` | Google |
 | `p best local LLM` | Perplexity |
@@ -12,24 +12,32 @@ A Firefox extension that routes address-bar searches with short prefixes.
 | `c explain predictive processing` | ChatGPT |
 | `explain predictive processing` | ChatGPT |
 
+Edit routes any time from the extension's Options page.
 
 ## Install
 
-1. In Firefox, open `about:debugging#/runtime/this-firefox`.
-2. Select **Load Temporary Add-on** and choose this folder's `manifest.json`.
-3. Accept Firefox's prompt to make **Personal Search Router** the default search engine. If you skip it, set it manually in Firefox Search settings.
-4. Search from the address bar using the prefixes above. Edit them from the extension's Options page.
+The public Firefox Add-ons listing is being prepared for version 1.0.1. Once published, install directly from:
 
-Temporary add-ons are removed when Firefox restarts. For a durable personal install, install the Mozilla-signed `.xpi` from the Add-ons Manager's **Install Add-on From File** option.
+<https://addons.mozilla.org/firefox/addon/personal-search-router/>
 
-## Package for Mozilla signing
+For a signed `.xpi` downloaded outside the store, open Firefox's Add-ons Manager, select the gear icon, then choose **Install Add-on From File**.
 
-Run `./package.ps1` in PowerShell. It creates a standards-compliant `.xpi` archive with portable forward-slash paths. Upload that file to the Mozilla Add-on Developer Hub as an unlisted/self-distributed add-on.
+## Privacy
 
-## How it works
+Personal Search Router has no backend or analytics. It reads an address-bar query only to apply the selected route in your browser. Your route preferences are stored with Firefox Sync when it is enabled.
 
-Firefox requires an HTTPS URL for extension-provided search engines. This add-on therefore sends address-bar searches to ChatGPT first. Its early-loading router redirects recognized prefixes (`g`, `p`, `o`) before ChatGPT renders. Unprefixed searches and `c` remain on ChatGPT.
+Firefox requires an HTTPS URL for extension-provided search engines. Searches first open ChatGPT; recognized `g`, `p`, and `o` prefixes immediately redirect to their chosen destination. This means the initial query is included in the ChatGPT URL even for those routed searches. See the [privacy policy](PRIVACY.md) for details.
 
-That means search text is included in the initial ChatGPT URL even when it is ultimately routed elsewhere. If that privacy tradeoff is unacceptable, use Firefox's keyword search with `route` before a query, or host a minimal private HTTPS redirect endpoint instead.
+## Development
 
-The extension declares Firefox's `searchTerms` data permission because it reads the address-bar query and redirects it to your selected search destination. It does not send search terms to any service of its own.
+To create an upload-ready package, run this from PowerShell:
+
+```powershell
+./package.ps1 -OutputPath personal-search-router-v1.0.1.xpi
+```
+
+The script creates a standards-compliant `.xpi` archive with portable paths for Mozilla Add-ons submission.
+
+## Support
+
+Questions or improvements: [open an issue](https://github.com/BoomerRawlings/personal-search-router/issues).

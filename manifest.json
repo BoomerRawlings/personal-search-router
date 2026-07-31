@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
   "name": "Personal Search Router",
-  "version": "1.0.0",
-  "description": "Routes Firefox address-bar searches using short prefixes.",
+  "version": "1.0.1",
+  "description": "Route Firefox address-bar searches to ChatGPT, Google, Perplexity, or OpenAlex with short prefixes.",
+  "homepage_url": "https://github.com/BoomerRawlings/personal-search-router",
   "icons": {
     "48": "icons/router.svg"
   },
