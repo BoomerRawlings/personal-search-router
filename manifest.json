@@ -5,7 +5,8 @@
   "description": "Route Firefox address-bar searches to ChatGPT, Google, Perplexity, or OpenAlex with short prefixes.",
   "homepage_url": "https://github.com/BoomerRawlings/personal-search-router",
   "icons": {
-    "48": "icons/router.svg"
+    "128": "icons/addon-icon-128.png",
+    "512": "icons/addon-icon-512.png"
   },
   "browser_specific_settings": {
     "gecko": {
@@ -21,7 +22,7 @@
       "search_url": "https://chatgpt.com/?q={searchTerms}",
       "keyword": "route",
       "is_default": true,
-      "favicon_url": "icons/router.svg"
+      "favicon_url": "icons/addon-icon-128.png"
     }
   },
   "content_scripts": [

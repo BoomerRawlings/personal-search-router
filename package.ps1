@@ -14,7 +14,8 @@ $files = @(
   "options.js",
   "options.css",
   "README.md",
-  "icons/router.svg"
+  "icons/addon-icon-128.png",
+  "icons/addon-icon-512.png"
 )
 
 $target = Join-Path $root $OutputPath
