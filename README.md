@@ -30,3 +30,5 @@ Run `./package.ps1` in PowerShell. It creates a standards-compliant `.xpi` archi
 Firefox requires an HTTPS URL for extension-provided search engines. This add-on therefore sends address-bar searches to ChatGPT first. Its early-loading router redirects recognized prefixes (`g`, `p`, `o`) before ChatGPT renders. Unprefixed searches and `c` remain on ChatGPT.
 
 That means search text is included in the initial ChatGPT URL even when it is ultimately routed elsewhere. If that privacy tradeoff is unacceptable, use Firefox's keyword search with `route` before a query, or host a minimal private HTTPS redirect endpoint instead.
+
+The extension declares Firefox's `searchTerms` data permission because it reads the address-bar query and redirects it to your selected search destination. It does not send search terms to any service of its own.
