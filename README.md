@@ -12,7 +12,6 @@ A Firefox extension that routes address-bar searches with short prefixes.
 | `c explain predictive processing` | ChatGPT |
 | `explain predictive processing` | ChatGPT |
 
-Zotero is intentionally not included.
 
 ## Install
 
